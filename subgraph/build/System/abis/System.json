@@ -1,0 +1,693 @@
+[
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "name": "_signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "getSigner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "name": "_signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "deploySigned",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "accountholders",
+    "outputs": [
+      {
+        "name": "holderName",
+        "type": "bytes32"
+      },
+      {
+        "name": "accountHolder",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "accounts",
+    "outputs": [
+      {
+        "name": "accountName",
+        "type": "bytes32"
+      },
+      {
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "name": "currency",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "deploy",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_sender",
+        "type": "address"
+      }
+    ],
+    "name": "getDeploymentAddress",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "isOwner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "ledgers",
+    "outputs": [
+      {
+        "name": "ledgerName",
+        "type": "bytes32"
+      },
+      {
+        "name": "group",
+        "type": "bytes32"
+      },
+      {
+        "name": "ledger",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "deployMinimal",
+    "outputs": [
+      {
+        "name": "proxy",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "holder",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "holderName",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "accountCreator",
+        "type": "address"
+      }
+    ],
+    "name": "HolderCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "ledger",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "ledgerName",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "group",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "holder",
+        "type": "address"
+      }
+    ],
+    "name": "LedgerCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "accountName",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "ledger",
+        "type": "address"
+      }
+    ],
+    "name": "AccountCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "proxy",
+        "type": "address"
+      }
+    ],
+    "name": "ProxyCreated",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_ledger",
+        "type": "address"
+      },
+      {
+        "name": "_account",
+        "type": "address"
+      },
+      {
+        "name": "_holder",
+        "type": "address"
+      },
+      {
+        "name": "_client",
+        "type": "address"
+      },
+      {
+        "name": "_viaFactory",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "accountCreator",
+        "type": "address"
+      }
+    ],
+    "name": "getAccountHolder",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "accountHolder",
+        "type": "address"
+      }
+    ],
+    "name": "getAccountLedger",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "accountLedger",
+        "type": "address"
+      }
+    ],
+    "name": "getLedgerAccount",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "accountCreator",
+        "type": "address"
+      }
+    ],
+    "name": "getAccountHolders",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "accountHolder",
+        "type": "address"
+      }
+    ],
+    "name": "getAccountLedgers",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "accountLedger",
+        "type": "address"
+      }
+    ],
+    "name": "getLedgerAccounts",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "holder",
+        "type": "address"
+      }
+    ],
+    "name": "getHolderDetails",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_ledger",
+        "type": "address"
+      }
+    ],
+    "name": "getLedgerDetails",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "address"
+      }
+    ],
+    "name": "getAccountDetails",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_accountHolder",
+        "type": "address"
+      }
+    ],
+    "name": "confirmAccountHolder",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_holderName",
+        "type": "bytes32"
+      },
+      {
+        "name": "_accountHolder",
+        "type": "address"
+      }
+    ],
+    "name": "createHolder",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_ledgerName",
+        "type": "bytes32"
+      },
+      {
+        "name": "_ledgerGroup",
+        "type": "bytes32"
+      },
+      {
+        "name": "_accountCreator",
+        "type": "address"
+      },
+      {
+        "name": "_accountHolder",
+        "type": "address"
+      }
+    ],
+    "name": "createLedger",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_accountName",
+        "type": "bytes32"
+      },
+      {
+        "name": "_currency",
+        "type": "bytes32"
+      },
+      {
+        "name": "_accountCreator",
+        "type": "address"
+      },
+      {
+        "name": "_accountHolder",
+        "type": "address"
+      }
+    ],
+    "name": "createAccount",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

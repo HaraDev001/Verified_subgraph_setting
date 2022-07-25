@@ -1,0 +1,611 @@
+[
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "name": "_signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "getSigner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "name": "_signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "deploySigned",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "deploy",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_sender",
+        "type": "address"
+      }
+    ],
+    "name": "getDeploymentAddress",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "isOwner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "deployMinimal",
+    "outputs": [
+      {
+        "name": "proxy",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "_securityToken",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "_company",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "_isin",
+        "type": "bytes32"
+      }
+    ],
+    "name": "SecurityCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "_securityToken",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "_company",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "_isin",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "_category",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "_action",
+        "type": "string"
+      }
+    ],
+    "name": "CorporateAction",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "proxy",
+        "type": "address"
+      }
+    ],
+    "name": "ProxyCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_viaFactory",
+        "type": "address"
+      },
+      {
+        "name": "_poolFactory",
+        "type": "address"
+      },
+      {
+        "name": "_preTradeContract",
+        "type": "address"
+      },
+      {
+        "name": "_tradeContract",
+        "type": "address"
+      },
+      {
+        "name": "_postTradeContract",
+        "type": "address"
+      },
+      {
+        "name": "_clientContract",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_issuer",
+        "type": "address"
+      },
+      {
+        "name": "_security",
+        "type": "address"
+      },
+      {
+        "name": "_currency",
+        "type": "bytes32"
+      },
+      {
+        "name": "_company",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      },
+      {
+        "name": "_settlementBy",
+        "type": "bytes32"
+      }
+    ],
+    "name": "createSecurity",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_currency",
+        "type": "bytes32"
+      },
+      {
+        "name": "_company",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getToken",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getSecuritiesIssued",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getSecuritiesInvested",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_securityToken",
+        "type": "address"
+      }
+    ],
+    "name": "getSecurityDetails",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "company",
+            "type": "bytes32"
+          },
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "isin",
+            "type": "bytes32"
+          },
+          {
+            "name": "creditScore",
+            "type": "bytes32"
+          },
+          {
+            "name": "price",
+            "type": "bytes16"
+          },
+          {
+            "name": "issuer",
+            "type": "address"
+          }
+        ],
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      }
+    ],
+    "name": "isIsinPresent",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_category",
+        "type": "bytes32"
+      },
+      {
+        "name": "_action",
+        "type": "string"
+      },
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      }
+    ],
+    "name": "registerCorporateAction",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_company",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      },
+      {
+        "name": "_score",
+        "type": "bytes32"
+      }
+    ],
+    "name": "registerCreditScore",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      },
+      {
+        "name": "_price",
+        "type": "bytes16"
+      }
+    ],
+    "name": "registerPrice",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      },
+      {
+        "name": "_category",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getCorporateActions",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      },
+      {
+        "name": "_company",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getCreditScore",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getPrice",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes16"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

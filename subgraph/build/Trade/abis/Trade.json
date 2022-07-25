@@ -1,0 +1,509 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "ref",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "party",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "trigger",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "qty",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "order",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "otype",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "dt",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "status",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "currency",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "securityName",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "security",
+        "type": "address"
+      }
+    ],
+    "name": "orderNew",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "orderRef",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "party",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "status",
+        "type": "bytes32"
+      }
+    ],
+    "name": "orderCancel",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "partyRef",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "counterpartyRef",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "isin",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "company",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "askprice",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "currency",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "qty",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "status",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "executionDt",
+        "type": "uint256"
+      }
+    ],
+    "name": "tradeReport",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_viaFactory",
+        "type": "address"
+      },
+      {
+        "name": "_settlement",
+        "type": "address"
+      },
+      {
+        "name": "_registration",
+        "type": "address"
+      },
+      {
+        "name": "_orderpool",
+        "type": "address"
+      },
+      {
+        "name": "_poolfactory",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "transferor",
+            "type": "address"
+          },
+          {
+            "name": "transferee",
+            "type": "address"
+          },
+          {
+            "name": "security",
+            "type": "address"
+          },
+          {
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "name": "askprice",
+            "type": "uint256"
+          },
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "order",
+            "type": "bytes32"
+          },
+          {
+            "name": "stype",
+            "type": "bytes32"
+          },
+          {
+            "name": "qty",
+            "type": "uint256"
+          },
+          {
+            "name": "dt",
+            "type": "uint256"
+          }
+        ],
+        "name": "newTrade",
+        "type": "tuple"
+      },
+      {
+        "name": "partyRef",
+        "type": "bytes32"
+      },
+      {
+        "name": "counterpartyRef",
+        "type": "bytes32"
+      }
+    ],
+    "name": "reportTrade",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getTrade",
+    "outputs": [
+      {
+        "name": "b",
+        "type": "uint256"
+      },
+      {
+        "name": "a",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "party",
+            "type": "address"
+          },
+          {
+            "name": "security",
+            "type": "address"
+          },
+          {
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "name": "trigger",
+            "type": "uint256"
+          },
+          {
+            "name": "otype",
+            "type": "bytes32"
+          },
+          {
+            "name": "order",
+            "type": "bytes32"
+          },
+          {
+            "name": "status",
+            "type": "bytes32"
+          },
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "securityName",
+            "type": "bytes32"
+          },
+          {
+            "name": "qty",
+            "type": "uint256"
+          },
+          {
+            "name": "dt",
+            "type": "uint256"
+          }
+        ],
+        "name": "newOrder",
+        "type": "tuple"
+      },
+      {
+        "name": "ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "reportOrder",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "originator",
+        "type": "bool"
+      }
+    ],
+    "name": "getOrders",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getOrder",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "party",
+            "type": "address"
+          },
+          {
+            "name": "security",
+            "type": "address"
+          },
+          {
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "name": "trigger",
+            "type": "uint256"
+          },
+          {
+            "name": "otype",
+            "type": "bytes32"
+          },
+          {
+            "name": "order",
+            "type": "bytes32"
+          },
+          {
+            "name": "status",
+            "type": "bytes32"
+          },
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "securityName",
+            "type": "bytes32"
+          },
+          {
+            "name": "qty",
+            "type": "uint256"
+          },
+          {
+            "name": "dt",
+            "type": "uint256"
+          }
+        ],
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "party",
+            "type": "address"
+          },
+          {
+            "name": "security",
+            "type": "address"
+          },
+          {
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "name": "trigger",
+            "type": "uint256"
+          },
+          {
+            "name": "otype",
+            "type": "bytes32"
+          },
+          {
+            "name": "order",
+            "type": "bytes32"
+          },
+          {
+            "name": "status",
+            "type": "bytes32"
+          },
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "securityName",
+            "type": "bytes32"
+          },
+          {
+            "name": "qty",
+            "type": "uint256"
+          },
+          {
+            "name": "dt",
+            "type": "uint256"
+          }
+        ],
+        "name": "currentOrder",
+        "type": "tuple"
+      },
+      {
+        "name": "ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "editOrder",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_ref",
+        "type": "bytes32"
+      },
+      {
+        "name": "_status",
+        "type": "bytes32"
+      }
+    ],
+    "name": "cancelOrder",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "tradeRef",
+        "type": "bytes32"
+      }
+    ],
+    "name": "tradeSettled",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

@@ -1,0 +1,826 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "issueSize",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "offerPrice",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "minAskPrice",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "minSubscription",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "currency",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "security",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "offerType",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "isin",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "status",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "productCategory",
+        "type": "bytes32"
+      }
+    ],
+    "name": "issued",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "security",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "status",
+        "type": "bytes32"
+      }
+    ],
+    "name": "offered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "security",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "status",
+        "type": "bytes32"
+      }
+    ],
+    "name": "opened",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "security",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "status",
+        "type": "bytes32"
+      }
+    ],
+    "name": "closed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "security",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "status",
+        "type": "bytes32"
+      }
+    ],
+    "name": "allotted",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_productReference",
+        "type": "bytes32"
+      },
+      {
+        "name": "_productCategory",
+        "type": "bytes32"
+      },
+      {
+        "name": "_issuer",
+        "type": "address"
+      },
+      {
+        "name": "_registrar",
+        "type": "address"
+      },
+      {
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "name": "_securityContract",
+        "type": "address"
+      },
+      {
+        "name": "_securityRegistriesContract",
+        "type": "address"
+      },
+      {
+        "name": "_viaFactoryContract",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getOwner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_issueSize",
+        "type": "uint256"
+      },
+      {
+        "name": "_offerPrice",
+        "type": "uint256"
+      },
+      {
+        "name": "_minAskPrice",
+        "type": "uint256"
+      },
+      {
+        "name": "_minSubscription",
+        "type": "uint256"
+      },
+      {
+        "name": "_currency",
+        "type": "bytes32"
+      },
+      {
+        "name": "_offerType",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      },
+      {
+        "name": "_offeringDocuments",
+        "type": "string"
+      }
+    ],
+    "name": "issueShare",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getShare",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "issueSize",
+            "type": "uint256"
+          },
+          {
+            "name": "faceValue",
+            "type": "uint256"
+          },
+          {
+            "name": "offerPrice",
+            "type": "uint256"
+          },
+          {
+            "name": "minAskPrice",
+            "type": "uint256"
+          },
+          {
+            "name": "minSubscription",
+            "type": "uint256"
+          },
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "security",
+            "type": "address"
+          }
+        ],
+        "name": "",
+        "type": "tuple[]"
+      },
+      {
+        "components": [
+          {
+            "name": "offerType",
+            "type": "bytes32"
+          },
+          {
+            "name": "isin",
+            "type": "bytes32"
+          },
+          {
+            "name": "status",
+            "type": "bytes32"
+          },
+          {
+            "name": "offeringDocuments",
+            "type": "string"
+          }
+        ],
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_issueSize",
+        "type": "uint256"
+      },
+      {
+        "name": "_offerPrice",
+        "type": "uint256"
+      },
+      {
+        "name": "_minAskPrice",
+        "type": "uint256"
+      },
+      {
+        "name": "_minSubscription",
+        "type": "uint256"
+      },
+      {
+        "name": "_couponPaymentCycle",
+        "type": "uint256"
+      },
+      {
+        "name": "_tenure",
+        "type": "uint256"
+      },
+      {
+        "name": "_currency",
+        "type": "bytes32"
+      },
+      {
+        "name": "_offerType",
+        "type": "bytes32"
+      },
+      {
+        "name": "_isin",
+        "type": "bytes32"
+      },
+      {
+        "name": "_offeringDocuments",
+        "type": "string"
+      }
+    ],
+    "name": "issueBond",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getBond",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "issueSize",
+            "type": "uint256"
+          },
+          {
+            "name": "coupon",
+            "type": "uint256"
+          },
+          {
+            "name": "offerPrice",
+            "type": "uint256"
+          },
+          {
+            "name": "minAskPrice",
+            "type": "uint256"
+          },
+          {
+            "name": "minSubscription",
+            "type": "uint256"
+          },
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "security",
+            "type": "address"
+          }
+        ],
+        "name": "",
+        "type": "tuple[]"
+      },
+      {
+        "components": [
+          {
+            "name": "offerType",
+            "type": "bytes32"
+          },
+          {
+            "name": "couponPaymentCycle",
+            "type": "uint256"
+          },
+          {
+            "name": "tenure",
+            "type": "uint256"
+          },
+          {
+            "name": "isin",
+            "type": "bytes32"
+          },
+          {
+            "name": "status",
+            "type": "bytes32"
+          },
+          {
+            "name": "offeringDocuments",
+            "type": "string"
+          }
+        ],
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_liquidityPlatform",
+        "type": "address"
+      }
+    ],
+    "name": "registerPlatform",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "askOffers",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "cutOffTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "startIssue",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "platform",
+        "type": "address"
+      },
+      {
+        "name": "isin",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getLiquidityProviders",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "name": "amountOffered",
+            "type": "uint256"
+          },
+          {
+            "name": "amountDesired",
+            "type": "uint256"
+          },
+          {
+            "name": "min",
+            "type": "uint256"
+          }
+        ],
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "getSubscribers",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "name": "poolid",
+            "type": "bytes32"
+          },
+          {
+            "name": "status",
+            "type": "bool"
+          },
+          {
+            "name": "platform",
+            "type": "address"
+          },
+          {
+            "name": "investor",
+            "type": "address"
+          },
+          {
+            "name": "asset",
+            "type": "address"
+          }
+        ],
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_allotment",
+        "type": "bytes32"
+      },
+      {
+        "name": "_platform",
+        "type": "address"
+      },
+      {
+        "name": "_pool",
+        "type": "bytes32"
+      },
+      {
+        "name": "_investor",
+        "type": "address"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "_asset",
+        "type": "address"
+      }
+    ],
+    "name": "allotIssue",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getBeneficiaries",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_currency",
+        "type": "address"
+      }
+    ],
+    "name": "computeNextInstallment",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_beneficiary",
+        "type": "address"
+      }
+    ],
+    "name": "getPaymentAmountFor",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_beneficiary",
+        "type": "address"
+      }
+    ],
+    "name": "getPaymentStatusFor",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "name": "payoutDate",
+            "type": "uint256"
+          },
+          {
+            "name": "payer",
+            "type": "address"
+          }
+        ],
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_byTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "isAllPaidFor",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "getDateOfIssue",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "getmaturityDate",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "getfirstCouponDate",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "computeNextCouponDate",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "getcouponFrequencyInMonths",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_currency",
+        "type": "address"
+      }
+    ],
+    "name": "getinterestRateInBips",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_beneficiary",
+        "type": "address"
+      },
+      {
+        "name": "_currency",
+        "type": "bytes32"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "payOut",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

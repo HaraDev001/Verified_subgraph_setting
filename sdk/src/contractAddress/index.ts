@@ -1,0 +1,37 @@
+const contractAddress: Object = {
+    'ropsten': {
+        'Client': '0x13a3b59852C27191fc58ddd0bec972757b2Fb39E',
+        'KYC': '0x50dFDe849afFb532ea03E36DE74F8aA5D6708215',
+        'System': '0x60504B00CaedC9d560cA3C2A36363D0045B93d8A',
+        'Holder': '0x1EE0ceF2dDDA34AC37595Eae9ca824bE58C33bE6',
+        'Ledger': '0x7f5760446fF456cB620665419d3a8E492BD11199',
+        'Account': '0xE44626F48DA117a788b9E983889d958c53a7168c',
+        'Factory': '0x36f49e8e1D3d713B461D4Cd12f961bC9B784dF67',        
+        'Cash': '0x93d5C6B832A9c4FEB1d9897D9b1088124c882eE3',
+        'Bond': '0x04dd0A9405B8DE91f92A0ee5F9972a1E898cFd79',
+        'Token': '0x4ef2b7de40058c71f8718D8c3bB93220Ec077305',
+        'Oracle': '0xf11cB9C121490294be1Db534d0162C390935FBf7',
+        'PreTrade': '0x4688B71Bba4375637D8c86600158bEC876EF3898',
+        'Trade': '0x8200Dec23cbb68824D7b13103E4d54909833622E',
+        'PostTrade': '0x8005253f6B0Cf2365BE58Fc628693F9E1cCb1E40',
+        'SecuritiesRegistry': '0xc090C51D33F556306241e1B915285705C115B68D',
+        'Security': '0x85129845e650bF48B01A0CF76585A4CBEd28a295',
+        'OrderPool': '0x0cFe463C91e7e53e78417a83580f3FDfB3EDD2D2',
+        'PoolFactory': '0xB8Da2b517dC50DE941F7c84bcdFfA9f9e18d628A',
+        'Products': '0x1C243DA5FcF7ad6E93B0360Ea4140ad296E13b57',
+        'Issues': '0x591414688A96Fd75e5D8b7B4ED6D759E08b3b217',
+        'BalancerManager': '',
+        'CASH': {
+            'VCUSD': '0x56849B0a8108d03926062187b2D97f67465Bb1a6',
+            'VCEUR': '0xB1D0B7a9d2CcD787dedc7f70aE6462062dc84255',
+            'VCINR': '0x4357af1D5823C256Ca1F1A417e2E83D91F25bDDB'
+        },
+        'BOND': {
+            'VBUSD': '0xdF59f85dF09a06c704C5C5fcADe9f15b4Bc06baF',
+            'VBEUR': '0x700BE30446c9DC82C565444ed15EFc5A6696300e',
+            'VBINR': '0xe8Ad6c15Fb44DE7bc5403160279cd0e4CcB0B0A2'
+        }
+    }
+}
+
+export default contractAddress

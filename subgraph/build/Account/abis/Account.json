@@ -1,0 +1,204 @@
+[
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "accountName",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "accountAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "accountName",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "txDate",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "party",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "txType",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "txDescription",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "currency",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "txAmount",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "name": "voucherType",
+        "type": "bytes32"
+      }
+    ],
+    "name": "postAccountEntry",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_accountName",
+        "type": "bytes32"
+      },
+      {
+        "name": "_ledger",
+        "type": "address"
+      },
+      {
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "name": "_accountCreator",
+        "type": "address"
+      },
+      {
+        "name": "_accountHolder",
+        "type": "address"
+      },
+      {
+        "name": "_currency",
+        "type": "bytes32"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_party",
+        "type": "address"
+      },
+      {
+        "name": "_txAmount",
+        "type": "int256"
+      },
+      {
+        "name": "_txType",
+        "type": "bytes32"
+      },
+      {
+        "name": "_txDate",
+        "type": "uint256"
+      },
+      {
+        "name": "_txDescription",
+        "type": "bytes32"
+      },
+      {
+        "name": "_vchType",
+        "type": "bytes32"
+      }
+    ],
+    "name": "postEntry",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_txDate",
+        "type": "uint256"
+      }
+    ],
+    "name": "getEntries",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "txType",
+            "type": "bytes32"
+          },
+          {
+            "name": "txDate",
+            "type": "uint256"
+          },
+          {
+            "name": "txDescription",
+            "type": "bytes32"
+          },
+          {
+            "name": "voucherType",
+            "type": "bytes32"
+          },
+          {
+            "name": "txCurrency",
+            "type": "bytes32"
+          },
+          {
+            "name": "txAmount",
+            "type": "bytes16"
+          },
+          {
+            "name": "party",
+            "type": "address"
+          }
+        ],
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_accountHolder",
+        "type": "address"
+      }
+    ],
+    "name": "getBalance",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes16"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

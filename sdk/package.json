@@ -1,0 +1,39 @@
+{
+  "name": "@verified-network/verified-sdk",
+  "version": "0.4.7",
+  "description": "An SDK to develop applications on the Verified Network",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/verified-network/verified-sdk.git"
+  },
+  "keywords": [
+    "payments",
+    "issuing",
+    "trading"
+  ],
+  "author": "Kallol Borah",
+  "license": "BUSL1.1",
+  "bugs": {
+    "url": "https://github.com/verified-network/verified-sdk/issues"
+  },
+  "homepage": "https://github.com/verified-network/verified-sdk#readme",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc && npm link",
+    "publish": "tsc && npm publish",
+    "test": "mocha"
+  },
+  "bin": {
+    "greet": "./bin/index.bin.js"
+  },
+  "dependencies": {
+    "ethers": "^5.0.31"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "mocha": "^9.0.1",
+    "typescript": "^4.3.4"
+  }
+}

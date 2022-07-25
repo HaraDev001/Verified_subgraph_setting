@@ -1,0 +1,255 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "partyRef",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "counterpartyRef",
+        "type": "bytes32"
+      }
+    ],
+    "name": "tradeSettled",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_client",
+        "type": "address"
+      },
+      {
+        "name": "_trade",
+        "type": "address"
+      },
+      {
+        "name": "_securitiesregistry",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "transferor",
+            "type": "address"
+          },
+          {
+            "name": "transferee",
+            "type": "address"
+          },
+          {
+            "name": "security",
+            "type": "address"
+          },
+          {
+            "name": "securityName",
+            "type": "bytes32"
+          },
+          {
+            "name": "status",
+            "type": "bytes32"
+          },
+          {
+            "name": "transferorDPID",
+            "type": "bytes32"
+          },
+          {
+            "name": "transfereeDPID",
+            "type": "bytes32"
+          },
+          {
+            "name": "isin",
+            "type": "bytes32"
+          },
+          {
+            "name": "company",
+            "type": "bytes32"
+          },
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "name": "consideration",
+            "type": "uint256"
+          },
+          {
+            "name": "unitsToTransfer",
+            "type": "uint256"
+          },
+          {
+            "name": "executionDate",
+            "type": "uint256"
+          },
+          {
+            "name": "orderPool",
+            "type": "address"
+          },
+          {
+            "name": "partyRef",
+            "type": "bytes32"
+          },
+          {
+            "name": "counterpartyRef",
+            "type": "bytes32"
+          }
+        ],
+        "name": "newTrade",
+        "type": "tuple"
+      },
+      {
+        "name": "ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "postSettlement",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "dpid",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getSettlementRequests",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getSettlementRequest",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "transferor",
+            "type": "address"
+          },
+          {
+            "name": "transferee",
+            "type": "address"
+          },
+          {
+            "name": "security",
+            "type": "address"
+          },
+          {
+            "name": "securityName",
+            "type": "bytes32"
+          },
+          {
+            "name": "status",
+            "type": "bytes32"
+          },
+          {
+            "name": "transferorDPID",
+            "type": "bytes32"
+          },
+          {
+            "name": "transfereeDPID",
+            "type": "bytes32"
+          },
+          {
+            "name": "isin",
+            "type": "bytes32"
+          },
+          {
+            "name": "company",
+            "type": "bytes32"
+          },
+          {
+            "name": "currency",
+            "type": "bytes32"
+          },
+          {
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "name": "consideration",
+            "type": "uint256"
+          },
+          {
+            "name": "unitsToTransfer",
+            "type": "uint256"
+          },
+          {
+            "name": "executionDate",
+            "type": "uint256"
+          },
+          {
+            "name": "orderPool",
+            "type": "address"
+          },
+          {
+            "name": "partyRef",
+            "type": "bytes32"
+          },
+          {
+            "name": "counterpartyRef",
+            "type": "bytes32"
+          }
+        ],
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "ref",
+        "type": "bytes32"
+      },
+      {
+        "name": "status",
+        "type": "bytes32"
+      }
+    ],
+    "name": "setSettlementStatus",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

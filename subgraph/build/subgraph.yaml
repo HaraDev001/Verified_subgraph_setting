@@ -1,0 +1,286 @@
+specVersion: 0.0.2
+description: Payments, Loans, Investments, Trades on the Verified Network
+repository: https://github.com/verified-network/verified-graph
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Factory
+    network: ropsten
+    source:
+      address: "0x24041c70f06f5E46960D357fEEe070Ca0EDBb837"
+      abi: Factory
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Issuer
+        - Token
+      abis:
+        - name: Factory
+          file: Factory\abis\Factory.json
+      eventHandlers:
+        - event: IssuerCreated(indexed address,bytes32,bytes32)
+          handler: handleIssuerCreated
+        - event: TokenCreated(indexed address,bytes32,bytes32)
+          handler: handleTokenCreated
+      file: Factory\Factory.wasm
+  - kind: ethereum/contract
+    name: Cash
+    network: ropsten
+    source:
+      address: "0xf3c8eDE0C8b49438FeAC3208DC958B292b75EA7c"
+      abi: Cash
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - CashIssues
+        - CashDeposits
+        - CashRedemptions
+        - CashTransfers
+        - Currency
+      abis:
+        - name: Cash
+          file: Cash\abis\Cash.json
+      eventHandlers:
+        - event: CashIssued(indexed address,bytes32,uint256)
+          handler: handleCashIssued
+        - event: CashRedeemed(indexed address,bytes32,bytes16)
+          handler: handleCashRedeemed
+        - event: CashDeposits(indexed address,bytes32,bytes16)
+          handler: handleCashDeposits
+        - event: CashTransfer(indexed address,indexed address,uint256)
+          handler: handleCashTransfer
+      file: Cash\Cash.wasm
+  - kind: ethereum/contract
+    name: Bond
+    network: ropsten
+    source:
+      address: "0x31a6584097d73061F76D15572e3E3696CF4E0740"
+      abi: Bond
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - BondIssues
+        - BondPurchases
+        - BondRedemptions
+        - BondLiquidations
+        - Currency
+        - Bond
+      abis:
+        - name: Bond
+          file: Bond\abis\Bond.json
+      eventHandlers:
+        - event: BondIssued(indexed address,bytes32,address,uint256,bytes32,uint256,uint256)
+          handler: handleBondIssued
+        - event: BondRedeemed(indexed address,bytes32,address,uint256,bytes32)
+          handler: handleBondRedeemed
+        - event: BondPurchased(indexed address,bytes32,address,uint256,bytes32,uint256,uint256)
+          handler: handleBondPurchased
+        - event: BondLiquidated(indexed address,bytes32,address,uint256,bytes32)
+          handler: handleBondLiquidated
+      file: Bond\Bond.wasm
+  - kind: ethereum/contract
+    name: System
+    network: ropsten
+    source:
+      address: "0xd2D9F14bee4788Ff32c2878ab01Fd55d16293830"
+      abi: System
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Holder
+        - Ledger
+        - Account
+      abis:
+        - name: System
+          file: System\abis\System.json
+      eventHandlers:
+        - event: HolderCreated(indexed address,bytes32,address)
+          handler: handleHolderCreated
+        - event: LedgerCreated(indexed address,bytes32,bytes32,address)
+          handler: handleLedgerCreated
+        - event: AccountCreated(indexed address,bytes32,address)
+          handler: handleAccountCreated
+      file: System\System.wasm
+  - kind: ethereum/contract
+    name: Account
+    network: ropsten
+    source:
+      address: "0xA8D57fD37B62AaFaac89f8A5bC778e0150dE4b1A"
+      abi: Account
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Entry
+      abis:
+        - name: Account
+          file: Account\abis\Account.json
+      eventHandlers:
+        - event: postAccountEntry(address,bytes32,uint256,address,bytes32,bytes32,bytes32,int256,bytes32)
+          handler: handlepostAccountEntry
+      file: Account\Account.wasm
+  - kind: ethereum/contract
+    name: SecuritiesRegistry
+    network: ropsten
+    source:
+      address: "0x40814A27685E9CEF474FFCe22523118669bc681d"
+      abi: SecuritiesRegistry
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Security
+        - Company
+        - ISIN
+        - CorporateAction
+      abis:
+        - name: SecuritiesRegistry
+          file: SecuritiesRegistry\abis\SecuritiesRegistry.json
+      eventHandlers:
+        - event: SecurityCreated(indexed address,bytes32,bytes32)
+          handler: handleSecurityCreated
+        - event: CorporateAction(indexed address,bytes32,bytes32,bytes32,string)
+          handler: handleCorporateAction
+      file: SecuritiesRegistry\SecuritiesRegistry.wasm
+  - kind: ethereum/contract
+    name: Security
+    network: ropsten
+    source:
+      address: "0x7Ad3AB2EDc2700c942A33a4Fe4b20486D8c60C2b"
+      abi: Security
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - SecurityTransfers
+      abis:
+        - name: Security
+          file: Security\abis\Security.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+      file: Security\Security.wasm
+  - kind: ethereum/contract
+    name: PoolFactory
+    network: ropsten
+    source:
+      address: "0xdaaee82FA0b1f9baa18644082Df080293874eeBd"
+      abi: PoolFactory
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Pool
+      abis:
+        - name: PoolFactory
+          file: PoolFactory\abis\PoolFactory.json
+      eventHandlers:
+        - event: PoolCreated(indexed address,address,address)
+          handler: handlePoolCreated
+      file: PoolFactory\PoolFactory.wasm
+  - kind: ethereum/contract
+    name: Trade
+    network: ropsten
+    source:
+      address: "0x02D7D0826181EF4d04cf51CE1d57C078A317dd31"
+      abi: Trade
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Order
+        - Trade
+      abis:
+        - name: Trade
+          file: Trade\abis\Trade.json
+      eventHandlers:
+        - event: orderNew(bytes32,address,uint256,uint256,uint256,bytes32,bytes32,uint256,bytes32,bytes32,bytes32,address)
+          handler: handleorderNew
+        - event: orderCancel(bytes32,address,bytes32)
+          handler: handleorderCancel
+        - event: tradeReport(bytes32,bytes32,bytes32,bytes32,uint256,uint256,bytes32,uint256,bytes32,uint256)
+          handler: handletradeReport
+      file: Trade\Trade.wasm
+  - kind: ethereum/contract
+    name: PostTrade
+    network: ropsten
+    source:
+      address: "0xB566094dE82737DC9282FD61ba1Ac20ECead8397"
+      abi: PostTrade
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Settlement
+      abis:
+        - name: PostTrade
+          file: PostTrade\abis\PostTrade.json
+      eventHandlers:
+        - event: tradeSettled(bytes32,bytes32)
+          handler: handletradeSettled
+      file: PostTrade\PostTrade.wasm
+  - kind: ethereum/contract
+    name: Products
+    network: ropsten
+    source:
+      address: "0x635f8Ae684090585d2Fa654004DFA4D6dD7Fdd90"
+      abi: Products
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Product
+      abis:
+        - name: Products
+          file: Products\abis\Products.json
+      eventHandlers:
+        - event: ProductIssued(address,bytes32,bytes32,bytes32,string)
+          handler: handleProductIssued
+      file: Products\Products.wasm
+  - kind: ethereum/contract
+    name: Issues
+    network: ropsten
+    source:
+      address: "0x14730A7770203A6FD0BF2fAB56b79798f4C96DbF"
+      abi: Issues
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Issue
+      abis:
+        - name: Issues
+          file: Issues\abis\Issues.json
+      eventHandlers:
+        - event: issued(uint256,uint256,uint256,uint256,bytes32,address,bytes32,bytes32,bytes32,bytes32)
+          handler: handleissued
+        - event: offered(address,bytes32)
+          handler: handleoffered
+        - event: opened(address,bytes32)
+          handler: handleopened
+        - event: closed(address,bytes32)
+          handler: handleclosed
+        - event: allotted(address,bytes32)
+          handler: handleallotted
+      file: Issues\Issues.wasm

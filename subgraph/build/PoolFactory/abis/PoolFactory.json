@@ -1,0 +1,281 @@
+[
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "name": "_signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "getSigner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "name": "_signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "deploySigned",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "deploy",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_sender",
+        "type": "address"
+      }
+    ],
+    "name": "getDeploymentAddress",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "deployMinimal",
+    "outputs": [
+      {
+        "name": "proxy",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "_pool",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "_security",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "_cash",
+        "type": "address"
+      }
+    ],
+    "name": "PoolCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "proxy",
+        "type": "address"
+      }
+    ],
+    "name": "ProxyCreated",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_viaFactory",
+        "type": "address"
+      },
+      {
+        "name": "_orderPool",
+        "type": "address"
+      },
+      {
+        "name": "_tradeContract",
+        "type": "address"
+      },
+      {
+        "name": "_posttradeContract",
+        "type": "address"
+      },
+      {
+        "name": "_securitiesRegistry",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_security",
+        "type": "address"
+      },
+      {
+        "name": "_cash",
+        "type": "address"
+      }
+    ],
+    "name": "getPool",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_pair",
+        "type": "address"
+      }
+    ],
+    "name": "confirmPool",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_security",
+        "type": "address"
+      },
+      {
+        "name": "_cash",
+        "type": "address"
+      },
+      {
+        "name": "_currency",
+        "type": "bytes32"
+      },
+      {
+        "name": "_settlementType",
+        "type": "bytes32"
+      }
+    ],
+    "name": "createPool",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

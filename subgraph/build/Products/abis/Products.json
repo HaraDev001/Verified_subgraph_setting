@@ -1,0 +1,591 @@
+[
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "name": "_signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "getSigner",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "name": "_signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "deploySigned",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "deploy",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_salt",
+        "type": "uint256"
+      },
+      {
+        "name": "_sender",
+        "type": "address"
+      }
+    ],
+    "name": "getDeploymentAddress",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_logic",
+        "type": "address"
+      },
+      {
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "deployMinimal",
+    "outputs": [
+      {
+        "name": "proxy",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "issue",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "ref",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "productCategory",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "issuerName",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "name": "registrationDocs",
+        "type": "string"
+      }
+    ],
+    "name": "ProductIssued",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "proxy",
+        "type": "address"
+      }
+    ],
+    "name": "ProxyCreated",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_client",
+        "type": "address"
+      },
+      {
+        "name": "_kyc",
+        "type": "address"
+      },
+      {
+        "name": "_issueContract",
+        "type": "address"
+      },
+      {
+        "name": "_securityContract",
+        "type": "address"
+      },
+      {
+        "name": "_securityRegistriesContract",
+        "type": "address"
+      },
+      {
+        "name": "_viaFactoryContract",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_productCategory",
+        "type": "bytes32"
+      },
+      {
+        "name": "_issuerName",
+        "type": "bytes32"
+      },
+      {
+        "name": "_issuerAddress",
+        "type": "bytes32"
+      },
+      {
+        "name": "_issuerCountry",
+        "type": "bytes32"
+      },
+      {
+        "name": "_issuerSignatoryEmail",
+        "type": "bytes32"
+      },
+      {
+        "name": "_arrangerName",
+        "type": "bytes32"
+      },
+      {
+        "name": "_arrangerAddress",
+        "type": "bytes32"
+      },
+      {
+        "name": "_arrangerCountry",
+        "type": "bytes32"
+      },
+      {
+        "name": "_arrangerSignatoryEmail",
+        "type": "bytes32"
+      },
+      {
+        "name": "_registrationDocuments",
+        "type": "string"
+      }
+    ],
+    "name": "recordProduct",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getProductsForClient",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getIssuesForClient",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_country",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getProductsForCountry",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_country",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getIssuesForCountry",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getProducts",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getProduct",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "productCategory",
+            "type": "bytes32"
+          },
+          {
+            "name": "issuerName",
+            "type": "bytes32"
+          },
+          {
+            "name": "issuerAddress",
+            "type": "bytes32"
+          },
+          {
+            "name": "issuerCountry",
+            "type": "bytes32"
+          },
+          {
+            "name": "issuerSignatoryEmail",
+            "type": "bytes32"
+          },
+          {
+            "name": "arrangerName",
+            "type": "bytes32"
+          },
+          {
+            "name": "arrangerAddress",
+            "type": "bytes32"
+          },
+          {
+            "name": "arrangerCountry",
+            "type": "bytes32"
+          },
+          {
+            "name": "arrangerSignatoryEmail",
+            "type": "bytes32"
+          },
+          {
+            "name": "issue",
+            "type": "address"
+          },
+          {
+            "name": "issuer",
+            "type": "address"
+          },
+          {
+            "name": "status",
+            "type": "bool"
+          },
+          {
+            "name": "issuerRegistrationCertificate",
+            "type": "string"
+          },
+          {
+            "name": "arrangerRegistrationCertificate",
+            "type": "string"
+          },
+          {
+            "name": "registrationDocuments",
+            "type": "string"
+          }
+        ],
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_ref",
+        "type": "bytes32"
+      },
+      {
+        "name": "_issuerCertificate",
+        "type": "string"
+      },
+      {
+        "name": "_arrangerCertificate",
+        "type": "string"
+      }
+    ],
+    "name": "registerCertificate",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getCertificate",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string"
+      },
+      {
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "confirmProduct",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getIssue",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getIssuerName",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_ref",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getIssuerAddress",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_liquidityPlatform",
+        "type": "address"
+      },
+      {
+        "name": "_owner",
+        "type": "address"
+      }
+    ],
+    "name": "registerPlatform",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_issuer",
+        "type": "address"
+      }
+    ],
+    "name": "checkIssue",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

@@ -1,0 +1,231 @@
+type Issuer @entity {
+  id: ID!
+  issuer: Bytes!
+  tokenName: Bytes! 
+  tokenType: Bytes! 
+}
+type Token @entity {
+  id: ID!
+  token: Bytes!
+  tokenName: Bytes! 
+  tokenType: Bytes!
+}
+type User @entity {
+  id: ID!
+  AllCashIssues: [CashIssues!]! @derivedFrom(field: "party")
+  AllCashDeposits: [CashDeposits!]! @derivedFrom(field: "party")
+  AllCashRedemptions: [CashRedemptions!]! @derivedFrom(field: "party")
+  AllCashTransfers: [CashTransfers!]! @derivedFrom(field: "party")
+  AllCashReceipts: [CashTransfers!]! @derivedFrom(field: "counterparty")
+  AllBondIssues: [BondIssues!]! @derivedFrom(field: "party")
+  AllBondPurchases: [BondPurchases!]! @derivedFrom(field: "party")
+  AllBondRedemptions: [BondRedemptions!]! @derivedFrom(field: "party")
+  AllBondLiquidations: [BondLiquidations!]! @derivedFrom(field: "party")
+  AllSecurityTransfers: [SecurityTransfers!]! @derivedFrom(field: "from")
+  AllSecurityReceipts: [SecurityTransfers!]! @derivedFrom(field: "to")
+}
+type CashIssues @entity {
+  id: ID!
+  party: User!
+  currency: Currency!
+  amount : BigInt!
+}
+type CashDeposits @entity {
+  id: ID!
+  party: User!
+  currency: Currency!
+  amount : BigInt!
+}
+type CashRedemptions @entity {
+  id: ID!
+  party: User!
+  currency: Currency!
+  amount : BigInt!
+}
+type CashTransfers @entity {
+  id: ID!
+  party: User!
+  counterparty: User!
+  currency: Currency!
+  amount : BigInt!
+}
+type Currency @entity {
+  id: ID!
+  CashIssues: [CashIssues!]! @derivedFrom(field: "currency")
+  CashDeposits: [CashDeposits!]! @derivedFrom(field: "currency")
+  CashRedemptions: [CashRedemptions!]! @derivedFrom(field: "currency")
+  CashTransfers: [CashTransfers!]! @derivedFrom(field: "currency")  
+  BondIssues: [BondIssues!]! @derivedFrom(field: "currency")
+  BondPurchases: [BondPurchases!]! @derivedFrom(field: "currency")
+  BondRedemptions: [BondRedemptions!]! @derivedFrom(field: "currency")
+  BondLiquidations: [BondLiquidations!]! @derivedFrom(field: "currency")
+}
+type BondIssues @entity {
+  id: ID!
+  token: Token!
+  bondName: Bond!
+  party: User!
+  currency: Currency!
+  amount : BigInt!    
+  collateralAmount: BigInt!
+  issueTime: BigInt!
+}
+type BondPurchases @entity {
+  id: ID!
+  token: Token!
+  bondName: Bond!
+  party: User!
+  currency: Currency!
+  amount : BigInt!
+  paidInAmount: BigInt!
+  purchaseTime: BigInt!
+}
+type BondRedemptions @entity {
+  id: ID!
+  token: Token!
+  bondName: Bond!
+  party: User!
+  currency: Currency!
+  amount : BigInt!
+}
+type BondLiquidations @entity {
+  id: ID!
+  token: Token!
+  bondName: Bond!
+  party: User!
+  currency: Currency!
+  amount : BigInt! 
+}
+type Bond @entity {
+  id: ID!
+  BondIssues: [BondIssues!]! @derivedFrom(field: "bondName")
+  BondPurchases: [BondPurchases!]! @derivedFrom(field: "bondName")
+  BondRedemptions: [BondRedemptions!]! @derivedFrom(field: "bondName")
+  BondLiquidations: [BondLiquidations!]! @derivedFrom(field: "bondName")  
+}
+type Holder @entity {
+  id: ID!
+  holder: Bytes!
+  holderName: Bytes!
+  accountCreator: User!  
+}
+type Ledger @entity {
+  id: ID!
+  ledger: Bytes!
+  ledgerName: Bytes!
+  group: Bytes!
+  holder: Holder!
+}
+type Account @entity {
+  id: ID!
+  account: Bytes!
+  accountName: Bytes!
+  ledger: Ledger!
+}
+type Entry @entity {
+  id: ID!
+  accountAddress: Bytes!
+  accountName: Bytes!
+  txDate: BigInt!
+  party: User!
+  txType: Bytes!
+  txDescription: Bytes!
+  currency: Bytes!
+  txAmount: BigInt!
+  voucherType: Bytes!
+}
+type Security @entity {
+  id: ID!
+  security: Bytes!
+  company: Bytes!
+  ISIN: Bytes!
+}
+type Company @entity {
+  id: ID!
+  security: Security!
+  corporateAction: CorporateAction!
+}
+type ISIN @entity {
+  id: ID!
+  company: Company!
+  security: Security!
+  corporateAction: CorporateAction!
+}
+type CorporateAction @entity {
+  id: ID!
+  security: Security!
+  company: Bytes!
+  ISIN: Bytes!
+  category: Bytes!
+  action: String!  
+}
+type SecurityTransfers @entity {
+  id: ID!
+  from: User!
+  to: User!
+  value: BigInt!
+}
+type Pool @entity {
+  id: ID!
+  pool: Bytes!
+  security: Security!
+  cash: Currency!  
+}
+type Order @entity {
+  id: ID!
+  orderReference: Bytes!
+  party: User!
+  price: BigInt!
+  trigger: BigInt!
+  amount: BigInt!
+  order: Bytes! 
+  orderType: Bytes!
+  date: BigInt! 
+  status: Bytes!
+  currency: Bytes!
+  securityName: Bytes!
+  security: Security!
+}
+type OrderReference @entity {
+  id: ID!
+  reference: Order! 
+}
+type Trade @entity {
+  id: ID!
+  partyReference: OrderReference! 
+  counterpartyReference: OrderReference! 
+  isin: Bytes!
+  company: Bytes!
+  price: BigInt!
+  askprice: BigInt! 
+  currency: Bytes! 
+  amount: BigInt! 
+  status: Bytes!
+  executionDate: BigInt!
+}
+type Settlement @entity {
+  id: ID!
+  partyReference: OrderReference!
+  counterpartyReference: OrderReference!
+}
+type Product @entity {
+  id: ID!
+  issue: Bytes! 
+  productReference: Bytes!
+  productCategory: Bytes! 
+  issuerName: Bytes! 
+  registrationDocs: String!
+}
+type Issue @entity {
+  id: ID!
+  issueSize: BigInt!
+  offerPrice: BigInt! 
+  minAskPrice: BigInt!   
+  minSubscription: BigInt!
+  currency: Bytes!
+  issue: Bytes!
+  offerType: Bytes!
+  isin: Bytes!
+  status: Bytes!
+  productCategory: Bytes!
+}
